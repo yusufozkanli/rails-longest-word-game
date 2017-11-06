@@ -1,0 +1,16 @@
+
+<h2 class="text-center">Welcome to longest word game...</h2>
+
+<ul class="list-inline text-center">
+<% @letters.each do |letter| %>
+  <li id="letter"><%= letter %></li>
+<% end %>
+</ul>
+
+
+<form action="/score" method="post" class="form-inline text-center">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <input type="text" name="game" placeholder="Please type a word..">
+  <input type="submit" class="btn btn-warning">
+</form>
